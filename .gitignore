@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment variables
+.env
+.env.*
+
+# uv / virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Pytest / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# ChromaDB
+chroma_db/
+*.db
+
+# Media
+*.mp3
+*.wav
+*.webm
+
+# IDEs and OS files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+.agents/*
+.superpowers/*
+
+# Data and logs
+data/call_logs.json
+data/system.log
+
+# Temp files
+temp_*
+
+# Generated files
+skills-lock.json
+docs/*data/01 糖尿病/

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Senior Care Call</title>
+    <link rel="stylesheet" href="/static/css/mobile.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="mobile-container">
+        <header class="call-header">
+            <p id="status-text" class="call-status">Waiting for incoming call...</p>
+            <h1 id="caller-name">Care Assistant</h1>
+        </header>
+
+        <!-- Incoming Call Actions -->
+        <div id="incoming-actions" class="incoming-actions" style="display: none;">
+            <div class="control-btn-wrapper">
+                <button id="answer-btn" class="answer-btn">
+                    <i class="ph-fill ph-phone"></i>
+                </button>
+                <span class="btn-label">Accept</span>
+            </div>
+        </div>
+
+        <!-- Active Call Controls -->
+        <main id="active-actions" class="call-controls" style="display: none;">
+            <div class="control-row">
+                <div class="control-btn-wrapper">
+                    <button class="control-btn"><i class="ph-fill ph-speaker-high"></i></button>
+                    <span>Speaker</span>
+                </div>
+                <div class="control-btn-wrapper">
+                    <button class="control-btn disabled"><i class="ph-fill ph-video-camera"></i></button>
+                    <span>FaceTime</span>
+                </div>
+                <div class="control-btn-wrapper">
+                    <!-- This will act as the push-to-talk for our demo -->
+                    <button id="record-btn" class="control-btn record-toggle"><i class="ph-fill ph-microphone"></i></button>
+                    <span>Talk</span>
+                </div>
+            </div>
+            <div class="control-row">
+                <div class="control-btn-wrapper">
+                    <button class="control-btn disabled"><i class="ph-fill ph-user-plus"></i></button>
+                    <span>Add</span>
+                </div>
+                <div class="control-btn-wrapper">
+                    <button id="end-btn" class="control-btn end-btn"><i class="ph-fill ph-phone-disconnect"></i></button>
+                    <span style="visibility: hidden;">End</span>
+                </div>
+                <div class="control-btn-wrapper">
+                    <button class="control-btn disabled"><i class="ph-bold ph-dots-nine"></i></button>
+                    <span>Keypad</span>
+                </div>
+            </div>
+        </main>
+        
+        <audio id="audio-player" style="display: none;"></audio>
+    </div>
+    <script src="/static/js/mobile.js"></script>
+</body>
+</html>

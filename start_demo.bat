@@ -1,0 +1,9 @@
+@echo off
+echo Starting Call2Care Backend Server...
+start "Call2Care Backend" cmd /k "uv run uvicorn backend.main:app --host 0.0.0.0 --port 8000"
+echo Waiting for server to initialize...
+timeout /t 3 /nobreak > nul
+echo Starting Ngrok...
+ngrok http 8000
+echo.
+echo Please close the backend terminal manually when finished.

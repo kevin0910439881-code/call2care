@@ -1,0 +1,12 @@
+[
+  {
+    "id": "patient_001",
+    "text": "【患者資料】\n姓名：張先生\n性別：男性\n年齡：78歲\n稱呼：張先生\n病史：第二型糖尿病（12年）、高血壓（9年）\n監測設備：配戴連續血糖監測儀(CGM)\n生活狀況：獨居，女兒住在台中\n目前用藥：\n  - Metformin（早晚飯後各一次）\n  - Glipizide（早餐前服用，有低血糖高風險）\n  - Amlodipine（早上服用）\n負責藥師：陳冠霖藥師",
+    "metadata": {"type": "patient_profile", "name": "張先生", "conditions": ["糖尿病", "高血壓", "低血糖"]}
+  },
+  {
+    "id": "patient_002",
+    "text": "【患者資料】\n姓名：林太太\n性別：女性\n年齡：65歲\n稱呼：林太太\n病史：高血壓（5年）、輕微氣喘\n生活狀況：與配偶同住\n目前用藥：\n  - Valsartan（早上服用）\n負責藥師：李藥師",
+    "metadata": {"type": "patient_profile", "name": "林太太", "conditions": ["高血壓", "氣喘"]}
+  }
+]

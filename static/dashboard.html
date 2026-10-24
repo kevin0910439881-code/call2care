@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <div class="header-left">
+                <div class="brand-eyebrow">call2Care</div>
+                <h1>Doctor Dashboard.</h1>
+            </div>
+            <div class="header-actions">
+                <select id="model-select" class="model-select">
+                    <option value="gemini-3.7-flash">Gemini 3.7 Flash</option>
+                    <option value="gemini-3.6-flash">Gemini 3.6 Flash</option>
+                    <option value="gemini-3.5-flash-lite" selected>Gemini 3.5 Flash-Lite</option>
+                    <option value="gemini-3.1-flash-lite">Gemini 3.1 Flash-Lite</option>
+                </select>
+                <button id="back-btn" class="back-btn" style="display: none;">
+                    <i class="ph-bold ph-arrow-left"></i>
+                    <span>Back to Patients</span>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Home View -->
+        <main id="home-view" class="home-view">
+            <h2 class="section-title">Patient List</h2>
+            <div id="patient-grid" class="patient-grid">
+                <!-- Patient cards injected here -->
+            </div>
+        </main>
+
+        <!-- Patient View -->
+        <main id="patient-view" class="patient-view" style="display: none;">
+            <div class="patient-header card-panel">
+                <div>
+                    <h2 id="current-patient-name" class="patient-name">Patient Name</h2>
+                    <p id="current-patient-illness" class="patient-illness">Conditions: Unknown</p>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <div id="risk-badge" class="badge large green" style="display: none;">
+                        <i class="ph-fill ph-warning-circle"></i>
+                        <span>Risk: Green</span>
+                    </div>
+                    <button id="initiate-call-btn" class="call-btn">
+                        <i class="ph-fill ph-phone"></i>
+                        <span>Initiate Call</span>
+                    </button>
+                </div>
+            </div>
+            <div class="patient-content">
+                <section class="transcript-section card-panel">
+                    <h3 class="panel-title">Live Transcript</h3>
+                    <div id="transcript-box" class="box">
+                        <div class="empty-state">
+                            <i class="ph-bold ph-microphone"></i>
+                            <span>Awaiting audio stream...</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <aside class="clinical-section">
+                    <!-- New Chart Panel -->
+                    <div class="card-panel" style="margin-bottom: 24px;">
+                        <h3 class="panel-title">Blood Glucose (Past 7 Days)</h3>
+                        <div style="position: relative; height:200px; width:100%;">
+                            <canvas id="medical-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card-panel">
+                        <h3 class="panel-title">Action Taken</h3>
+                        <div class="status-block">
+                            <i class="ph-bold ph-lightning"></i>
+                            <p id="action-taken" class="status-text">None</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-panel" style="margin-top: 24px;">
+                        <h3 class="panel-title">Case Status</h3>
+                        <div class="status-block">
+                            <i class="ph-bold ph-folder"></i>
+                            <p id="case-status" class="status-text">Unknown</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card-panel">
+                        <h3 class="panel-title">Reported Symptoms</h3>
+                        <ul id="symptoms-list">
+                            <li>None</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

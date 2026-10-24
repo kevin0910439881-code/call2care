@@ -1,0 +1,427 @@
+:root {
+    --bg-color: #FBFBFA;
+    --surface-color: #FFFFFF;
+    --text-primary: #111111;
+    --text-secondary: #787774;
+    --border-color: #EAEAEA;
+    
+    --accent-bg: #111111;
+    --accent-text: #FFFFFF;
+    
+    --badge-green-bg: #EDF3EC;
+    --badge-green-text: #346538;
+    
+    --badge-yellow-bg: #FBF3DB;
+    --badge-yellow-text: #956400;
+    
+    --badge-red-bg: #FDEBEC;
+    --badge-red-text: #9F2F2D;
+    
+    --message-patient-bg: #F7F6F3;
+    --message-ai-bg: #FFFFFF;
+}
+
+body {
+    margin: 0;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.dashboard {
+    width: 95%;
+    max-width: 1200px;
+    padding: 4rem 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+}
+
+.brand-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    margin: 0;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Geist Mono', 'SF Mono', 'JetBrains Mono', monospace;
+}
+
+.badge.green {
+    background: var(--badge-green-bg);
+    color: var(--badge-green-text);
+}
+
+.badge.yellow {
+    background: var(--badge-yellow-bg);
+    color: var(--badge-yellow-text);
+}
+
+.badge.red {
+    background: var(--badge-red-bg);
+    color: var(--badge-red-text);
+}
+
+.badge.large {
+    font-size: 1rem;
+    padding: 0.5rem 1.25rem;
+}
+
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(159, 47, 45, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(159, 47, 45, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(159, 47, 45, 0); }
+}
+
+.badge.red.large {
+    animation: pulse-red 2s infinite;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    border: none;
+    padding: 0;
+}
+
+.patient-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.card-panel {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 32px;
+}
+
+.clinical-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.panel-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin: 0 0 1.5rem 0;
+    border: none;
+    padding: 0;
+}
+
+.status-block {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.status-block i {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.status-text {
+    font-size: 1.125rem;
+    margin: 0;
+    font-family: 'Geist Mono', 'SF Mono', 'JetBrains Mono', monospace;
+}
+
+.box {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+#symptoms-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#symptoms-list li {
+    font-size: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+#symptoms-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.message {
+    padding: 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.message.ai {
+    background: var(--message-ai-bg);
+    border: 1px solid var(--border-color);
+}
+
+.message.patient {
+    background: var(--message-patient-bg);
+    border: 1px solid var(--border-color);
+}
+
+#transcript-box {
+    overflow-y: auto;
+    max-height: 500px;
+    padding-right: 16px;
+}
+
+/* Custom scrollbar for transcript */
+#transcript-box::-webkit-scrollbar {
+    width: 6px;
+}
+#transcript-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+#transcript-box::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+.patient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.patient-card {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 24px;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+
+.patient-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.patient-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.patient-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 24px 32px;
+}
+
+.patient-name {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.patient-illness {
+    font-family: 'Geist Mono', 'SF Mono', 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0.5rem 0 0 0;
+}
+
+.call-btn {
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    border: 1px solid var(--accent-bg);
+    padding: 0.65rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+}
+
+.call-btn i {
+    font-size: 1.125rem;
+}
+
+.call-btn:hover {
+    background: #333333;
+    border-color: #333333;
+}
+
+.call-btn:active {
+    transform: scale(0.98);
+}
+
+.back-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background: var(--border-color);
+    color: var(--text-primary);
+}
+
+/* --- Added from Design Audit --- */
+
+.model-select {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border-color);
+    background: var(--surface-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-family: 'Geist Mono', 'SF Mono', 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    margin-right: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.model-select:focus {
+    border-color: var(--text-secondary);
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 3rem 1rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    height: 100%;
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    animation: pulse-soft 2s infinite;
+}
+
+@keyframes pulse-soft {
+    0% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.5; transform: scale(1); }
+}
+
+@keyframes slide-up-fade {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.patient-card {
+    animation: slide-up-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+.patient-card:nth-child(1) { animation-delay: 0.05s; }
+.patient-card:nth-child(2) { animation-delay: 0.1s; }
+.patient-card:nth-child(3) { animation-delay: 0.15s; }
+.patient-card:nth-child(4) { animation-delay: 0.2s; }
+.patient-card:nth-child(n+5) { animation-delay: 0.25s; }
+
+.patient-view .card-panel {
+    animation: slide-up-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+.patient-header.card-panel { animation-delay: 0.05s; }
+.transcript-section.card-panel { animation-delay: 0.1s; }
+.clinical-section .card-panel:nth-child(1) { animation-delay: 0.15s; }
+.clinical-section .card-panel:nth-child(2) { animation-delay: 0.2s; }
+.clinical-section .card-panel:nth-child(3) { animation-delay: 0.25s; }
+
+@media (max-width: 768px) {
+    .patient-content {
+        grid-template-columns: 1fr;
+    }
+    
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .patient-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    
+    .patient-header > div:last-child {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
